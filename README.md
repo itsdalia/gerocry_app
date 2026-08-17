@@ -7,6 +7,10 @@ Grocery App is a mobile application built with Flutter that allows users to brow
 	•	📝 Sign Up for new users
 	•	🎨 Clean, modern UI with a green & white theme
 	•	📱 Responsive design that works across different screen sizes
-	•	🥕 Custom branding with carrot logo
-📸 Screenshots
-Login Screen
+	•	🥕 Custom branding with carrot
+## شاشة تسجيل الدخول
+
+![Login Screen](screenshots/login_screen.png)
+
+---
+**تم التطوير باستخدام Flutter & Dart**
