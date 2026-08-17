@@ -1,17 +1,12 @@
-# grocery_app
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+🥕 Grocery App
+A simple and clean Flutter grocery shopping application featuring user authentication (Login/Signup) with a modern, minimal UI design.
+📱 About the App
+Grocery App is a mobile application built with Flutter that allows users to browse and shop for groceries online. The app features a clean and intuitive interface, starting with a Login screen for user authentication.
+✨ Features
+	•	🔐 User Login & Authentication
+	•	📝 Sign Up for new users
+	•	🎨 Clean, modern UI with a green & white theme
+	•	📱 Responsive design that works across different screen sizes
+	•	🥕 Custom branding with carrot logo
+📸 Screenshots
+Login Screen
