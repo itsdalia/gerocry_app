@@ -14,11 +14,16 @@ class DontHaveWidget extends StatelessWidget {
               "Don't have an account? ",
               style: TextStyle(fontWeight: FontWeight.w600),
             ),
-            Text(
-              "Singup",
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                color: Color(0xff53B175),
+            InkWell(
+              onTap: () {
+                print("Signup tapped");
+              },
+              child: Text(
+                "Singup",
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xff53B175),
+                ),
               ),
             ),
           ],

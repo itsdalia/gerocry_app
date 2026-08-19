@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key});
+  final GlobalKey<FormState> formKey;
+
+  const CustomButton({super.key, required this.formKey});
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +11,9 @@ class CustomButton extends StatelessWidget {
       children: [
         InkWell(
           onTap: () {
-            print("on Tapped");
+            if (formKey.currentState!.validate()) {
+              print("Form is valid, proceed with login");
+            }
           },
           child: Container(
             padding: EdgeInsets.symmetric(vertical: 25),

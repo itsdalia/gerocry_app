@@ -5,7 +5,9 @@ import 'package:grocery_app/widgets/login_form.dart';
 import 'package:grocery_app/widgets/login_header.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +21,8 @@ class LoginScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 LoginHeader(),
-                LoginForm(),
-                CustomButton(),
-                SizedBox(height: 25),
+                LoginForm(formKey: _formKey),
+                CustomButton(formKey: _formKey),
                 DontHaveWidget(),
               ],
             ),
