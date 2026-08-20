@@ -16,4 +16,4 @@
 
 
 ### Screenshot:
-![Bottom_screen](screenshots\bottom_screen.png)
+![Bottom_screen](screenshots/bottom_screen.png)
