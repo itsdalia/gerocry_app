@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_app/widgets/home_search_field.dart';
 
 class ShopScreen extends StatelessWidget {
   const ShopScreen({super.key});
@@ -27,29 +28,7 @@ class ShopScreen extends StatelessWidget {
             ],
           ),
           SizedBox(height: 20),
-          TextFormField(
-            cursorColor: Color(0xff53B175),
-            onTapOutside: (v) {
-              FocusScope.of(context).unfocus();
-            },
-            decoration: InputDecoration(
-              fillColor: Color(0xffF2F3F2),
-              filled: true,
-              hintText: "search store",
-              prefixIcon: Padding(
-                padding: const EdgeInsets.only(left: 15),
-                child: Icon(Icons.search),
-              ),
-              prefixIconConstraints: BoxConstraints(
-                maxWidth: 43,
-                maxHeight: 40,
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(15),
-              ),
-            ),
-          ),
+          HomeSearchField(),
         ],
       ),
     );
