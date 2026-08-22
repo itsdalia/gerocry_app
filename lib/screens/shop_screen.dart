@@ -1,7 +1,6 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:grocery_app/widgets/home_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_app/widgets/home_search_field.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ShopScreen extends StatefulWidget {
   const ShopScreen({super.key});
@@ -11,7 +10,6 @@ class ShopScreen extends StatefulWidget {
 }
 
 class _ShopScreenState extends State<ShopScreen> {
-  int activeIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -38,66 +36,52 @@ class _ShopScreenState extends State<ShopScreen> {
           SizedBox(height: 20),
           HomeSearchField(),
           SizedBox(height: 20),
+          HomeSlider(),
+          Container(
+            width: 173,
+            height: 248,
+            padding: EdgeInsets.only(top: 25, right: 15, left: 15, bottom: 15),
+            decoration: BoxDecoration(
+              border: Border.all(color: Color(0xffE2E2E2)),
+              borderRadius: BorderRadius.circular(18),
+            ),
 
-          Stack(
-            alignment: AlignmentGeometry.bottomCenter,
-            children: [
-              CarouselSlider(
-                options: CarouselOptions(
-                  height: 119.0,
-                  autoPlay: true,
-                  viewportFraction: 1,
-                  onPageChanged: (i, r) {
-                    setState(() {
-                      activeIndex = i;
-                    });
-                  },
-                  enableInfiniteScroll: false,
-                  reverse: true,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(child: Image.asset('assets/images/fruit.png')),
+                SizedBox(height: 30),
+                Text(
+                  "Red Apple",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                 ),
-                items: images
-                    .map(
-                      (i) => Container(
-                        width: double.infinity,
-                        alignment: Alignment.bottomCenter,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: Image.network(i).image,
-                          ),
-                        ),
+                Text("1kg, Price", style: TextStyle(color: Color(0xff7C7C7C))),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "\$4.99",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
                       ),
-                    )
-                    .toList(),
-              ),
-
-              Positioned(
-                bottom: 10,
-                left: 140,
-                child: AnimatedSmoothIndicator(
-                  activeIndex: activeIndex,
-                  count: images.length,
-                  effect: ExpandingDotsEffect(
-                    activeDotColor: Color(0xff53B175),
-                    dotColor: Colors.grey,
-                    dotHeight: 10,
-                    dotWidth: 10,
-                    spacing: 4,
-                  ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(14),
+                      decoration: BoxDecoration(
+                        color: Color(0xff53B175),
+                        borderRadius: BorderRadius.circular(18),
+                      ),
+                      child: Icon(Icons.add, color: Colors.white, size: 17),
+                    ),
+                  ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 }
-
-List<String> images = [
-  'https://media.istockphoto.com/id/1318452948/photo/large-variety-of-food-on-black-background.jpg',
-  'https://media.istockphoto.com/id/1449032425/photo/shopping-bag-full-of-healthy-food-on-blue.jpg',
-  'https://media.istockphoto.com/id/1318452948/photo/large-variety-of-food-on-black-background.jpg',
-  'https://media.istockphoto.com/id/1449032425/photo/shopping-bag-full-of-healthy-food-on-blue.jpg',
-];
