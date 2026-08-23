@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+
+class ProductItem extends StatelessWidget {
+  const ProductItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 173,
+      height: 260,
+      padding: EdgeInsets.only(top: 20, right: 15, left: 15, bottom: 15),
+      decoration: BoxDecoration(
+        border: Border.all(color: Color(0xffE2E2E2)),
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Center(child: Image.asset('assets/images/fruit.png', height: 100)),
+          SizedBox(height: 12),
+          Text(
+            "Red Apple",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+          ),
+          Text("1kg, Price", style: TextStyle(color: Color(0xff7C7C7C))),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "\$4.99",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+              Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Color(0xff53B175),
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                child: Icon(Icons.add, color: Colors.white, size: 17),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
