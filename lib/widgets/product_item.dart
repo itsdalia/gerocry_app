@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({super.key});
+ final double price;
+  const ProductItem({super.key, required this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class ProductItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "\$4.99",
+                "\$ $price",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
               Container(

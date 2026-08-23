@@ -38,7 +38,19 @@ class _ShopScreenState extends State<ShopScreen> {
           HomeSearchField(),
           HomeSlider(),
           SizedBox(height: 20),
-          ProductItem(),
+
+          SizedBox(
+            height: 270,
+            child: ListView.separated(
+              itemBuilder: (context, index) {
+                print(index);
+                return ProductItem(price: 4 + index.toDouble());
+              },
+              separatorBuilder: (context, index) => SizedBox(width: 10),
+              scrollDirection: Axis.horizontal,
+              itemCount: 20,
+            ),
+          ),
         ],
       ),
     );

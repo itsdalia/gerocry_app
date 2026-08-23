@@ -23,6 +23,7 @@
 ## 📱 سكرين شوتس (Screenshots)
 
 ![Home Slider](screenshots/home_slider.jpg)
+![product item](screenshots/product_item.png)
 
 
 ---
