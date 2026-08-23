@@ -20,7 +20,7 @@
 
 ---
 
-## 📱 سكرين شوتس (Screenshots)
+## (Screenshots)
 
 ![Home Slider](screenshots/home_slider.jpg)
 ![product item](screenshots/product_item.png)
@@ -28,7 +28,7 @@
 
 ---
 
-## 🛠️ التقنيات المستخدمة (Tech Stack)
+## (Tech Stack)
 
 - **Flutter** (Dart)
 - [carousel_slider](https://pub.dev/packages/carousel_slider) — لعرض الـ Slider الرئيسي
