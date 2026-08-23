@@ -35,12 +35,12 @@ class _ShopScreenState extends State<ShopScreen> {
           ),
           SizedBox(height: 20),
           HomeSearchField(),
-          SizedBox(height: 20),
           HomeSlider(),
+          SizedBox(height: 20),
           Container(
             width: 173,
-            height: 248,
-            padding: EdgeInsets.only(top: 25, right: 15, left: 15, bottom: 15),
+            height: 260,
+            padding: EdgeInsets.only(top: 20, right: 15, left: 15, bottom: 15),
             decoration: BoxDecoration(
               border: Border.all(color: Color(0xffE2E2E2)),
               borderRadius: BorderRadius.circular(18),
@@ -49,8 +49,10 @@ class _ShopScreenState extends State<ShopScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(child: Image.asset('assets/images/fruit.png')),
-                SizedBox(height: 30),
+                Center(
+                  child: Image.asset('assets/images/fruit.png', height: 100),
+                ),
+                SizedBox(height: 12),
                 Text(
                   "Red Apple",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
@@ -68,7 +70,7 @@ class _ShopScreenState extends State<ShopScreen> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.all(14),
+                      padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         color: Color(0xff53B175),
                         borderRadius: BorderRadius.circular(18),

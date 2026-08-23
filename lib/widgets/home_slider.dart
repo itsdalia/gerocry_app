@@ -27,7 +27,6 @@ class HomeSlider extends StatelessWidget {
             enableInfiniteScroll: false,
             reverse: true,
             onPageChanged: (i, r) {
-              // بدل setState، بنحدث القيمة جوه الـ Notifier
               activeIndexNotifier.value = i;
             },
           ),
@@ -46,29 +45,32 @@ class HomeSlider extends StatelessWidget {
                 ),
               )
               .toList(),
-        ),
+        ), // CarouselSlider
 
         Positioned(
           bottom: 10,
-          left: 140,
-          child: ValueListenableBuilder<int>(
-            valueListenable: activeIndexNotifier,
-            builder: (context, activeIndex, _) {
-              return AnimatedSmoothIndicator(
-                activeIndex: activeIndex,
-                count: images.length,
-                effect: ExpandingDotsEffect(
-                  activeDotColor: const Color(0xff53B175),
-                  dotColor: Colors.grey,
-                  dotHeight: 10,
-                  dotWidth: 10,
-                  spacing: 4,
-                ),
-              );
-            },
-          ),
-        ),
+          left: 0,
+          right: 0,
+          child: Center(
+            child: ValueListenableBuilder<int>(
+              valueListenable: activeIndexNotifier,
+              builder: (context, activeIndex, _) {
+                return AnimatedSmoothIndicator(
+                  activeIndex: activeIndex,
+                  count: images.length,
+                  effect: ExpandingDotsEffect(
+                    activeDotColor: const Color(0xff53B175),
+                    dotColor: Colors.grey,
+                    dotHeight: 10,
+                    dotWidth: 10,
+                    spacing: 4,
+                  ), // ExpandingDotsEffect
+                ); // AnimatedSmoothIndicator
+              },
+            ), // ValueListenableBuilder
+          ), // Center
+        ), // Positioned
       ],
-    );
+    ); // Stack
   }
 }

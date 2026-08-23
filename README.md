@@ -1,19 +1,35 @@
-## 📱 Bottom Screen (Home)
+#  Grocery App
 
-الشاشة الرئيسية للتطبيق، تظهر بعد تسجيل الدخول مباشرة.
+تطبيق تسوق بقالة (Grocery App) مبني باستخدام **Flutter**، بيسمح للمستخدم يتصفح المنتجات، يبحث عنها، ويضيفها للسلة بسهولة وبتصميم بسيط ونظيف.
 
-### العناصر:
-- **Header**: لوجو التطبيق + اسم الموقع الحالي للمستخدم (قابل للتغيير عن طريق الضغط عليه).
-- **Search Bar**: خانة بحث لإيجاد المتاجر (`search store`).
-- **Bottom Navigation Bar**: شريط تنقل سفلي ثابت فيه 5 تابات:
-  | الأيقونة | الاسم | الوظيفة |
-  |---|---|---|
-  | 🏪 | Shop | الشاشة الرئيسية / المتاجر |
-  | 🔍 | Explore | استكشاف المنتجات/العروض |
-  | 🛒 | Cart | عربة التسوق |
-  | ♡ | Favorite | المفضلة |
-  | 👤 | Account | حساب المستخدم |
+---
+
+## (Features)
+
+- 🏠 **شاشة رئيسية (Home)** تعرض:
+  - Slider تلقائي (Carousel) لعروض المنتجات مع Page Indicator متحرك
+  - قائمة منتجات (Cards) بصورة، اسم، سعر، وزرار إضافة للسلة
+- 🔍 **بحث عن المنتجات** عبر شريط بحث مخصص (Search Store)
+- 📍 عرض الموقع الحالي للتوصيل أعلى الشاشة
+- 🧭 شريط تنقل سفلي (Bottom Navigation) يحتوي على:
+  - Shop
+  - Explore
+  - Cart
+  - Favorite
+  - Account
+
+---
+
+## 📱 سكرين شوتس (Screenshots)
+
+![Home Slider](screenshots/home_slider.jpg)
 
 
-### Screenshot:
-![Bottom_screen](screenshots/bottom_screen.png)
+---
+
+## 🛠️ التقنيات المستخدمة (Tech Stack)
+
+- **Flutter** (Dart)
+- [carousel_slider](https://pub.dev/packages/carousel_slider) — لعرض الـ Slider الرئيسي
+- [smooth_page_indicator](https://pub.dev/packages/smooth_page_indicator) — لعرض نقاط الـ Slider (Page Indicator)
+
