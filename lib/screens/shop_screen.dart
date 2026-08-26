@@ -1,3 +1,4 @@
+import 'package:grocery_app/models/produt_model.dart';
 import 'package:grocery_app/widgets/home_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_app/widgets/home_search_field.dart';
@@ -19,8 +20,8 @@ class _ShopScreenState extends State<ShopScreen> {
         children: [
           Center(child: Image.asset("assets/images/carrot.png", width: 30)),
 
-          SizedBox(height: 7.6),
-          Row(
+          const SizedBox(height: 7.6),
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(Icons.location_on),
@@ -34,21 +35,36 @@ class _ShopScreenState extends State<ShopScreen> {
               ),
             ],
           ),
-          SizedBox(height: 20),
-          HomeSearchField(),
+          const SizedBox(height: 20),
+          const HomeSearchField(),
           HomeSlider(),
-          SizedBox(height: 20),
-
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Exclusive Offer",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                "See all",
+                style: TextStyle(
+                  color: Color(0xff53B175),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
           SizedBox(
             height: 270,
             child: ListView.separated(
               itemBuilder: (context, index) {
                 print(index);
-                return ProductItem(price: 4 + index.toDouble());
+                return ProductItem(product: products[index]);
               },
               separatorBuilder: (context, index) => SizedBox(width: 10),
               scrollDirection: Axis.horizontal,
-              itemCount: 20,
+              itemCount: products.length,
             ),
           ),
         ],
@@ -56,3 +72,42 @@ class _ShopScreenState extends State<ShopScreen> {
     );
   }
 }
+
+List<ProductModel> products = [
+  ProductModel(
+    image: "assets/images/product1.png",
+    title: "Pulses",
+    description: "1kg, Priceg",
+    price: 4.99,
+  ),
+  ProductModel(
+    image: "assets/images/product2.png",
+    title: "Rice",
+    description: "1kg, Priceg",
+    price: 4.99,
+  ),
+  ProductModel(
+    image: "assets/images/product3.png",
+    title: "Bell Papper Red",
+    description: "1kg, Priceg",
+    price: 5.99,
+  ),
+  ProductModel(
+    image: "assets/images/product4.png",
+    title: "Broiler Checken",
+    description: "1kg, Priceg",
+    price: 7.99,
+  ),
+  ProductModel(
+    image: "assets/images/product5.png",
+    title: "Beef Bone",
+    description: "1kg, Priceg",
+    price: 8.99,
+  ),
+  ProductModel(
+    image: "assets/images/product6.png",
+    title: "Ginger",
+    description: "1kg, Priceg",
+    price: 3.99,
+  ),
+];

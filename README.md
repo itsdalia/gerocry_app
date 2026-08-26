@@ -1,36 +1,24 @@
-#  Grocery App
+Added an "Exclusive Offer" section on the Shop screen, displaying featured products:
+- Pulses – 1kg – $4.99
+- Rice – 1kg – $4.99
+- Bell Pepper Red – 1kg – $5.99
 
-تطبيق تسوق بقالة (Grocery App) مبني باستخدام **Flutter**، بيسمح للمستخدم يتصفح المنتجات، يبحث عنها، ويضيفها للسلة بسهولة وبتصميم بسيط ونظيف.
+Each item has a "+" button to add it directly to the cart, and a "See all" link to view more offers.
 
----
-
-## (Features)
-
-- 🏠 **شاشة رئيسية (Home)** تعرض:
-  - Slider تلقائي (Carousel) لعروض المنتجات مع Page Indicator متحرك
-  - قائمة منتجات (Cards) بصورة، اسم، سعر، وزرار إضافة للسلة
-- 🔍 **بحث عن المنتجات** عبر شريط بحث مخصص (Search Store)
-- 📍 عرض الموقع الحالي للتوصيل أعلى الشاشة
-- 🧭 شريط تنقل سفلي (Bottom Navigation) يحتوي على:
-  - Shop
-  - Explore
-  - Cart
-  - Favorite
-  - Account
-
----
-
-## (Screenshots)
-
-![Home Slider](screenshots/home_slider.jpg)
-![product item](screenshots/product_item.png)
+![product item](screenshots/product_item1.jpg)
 
 
----
+Added the Account Information page, which includes:
+- User info (profile picture, name, email)
+- Orders
+- My Details
+- Delivery Address
+- Payment Methods
+- Promo Card
+- Notifications
+- Help
+- About
+- Log Out
 
-## (Tech Stack)
 
-- **Flutter** (Dart)
-- [carousel_slider](https://pub.dev/packages/carousel_slider) — لعرض الـ Slider الرئيسي
-- [smooth_page_indicator](https://pub.dev/packages/smooth_page_indicator) — لعرض نقاط الـ Slider (Page Indicator)
-
+![account information](screenshots/account_info.jpg)

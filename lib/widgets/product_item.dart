@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_app/models/produt_model.dart';
 
 class ProductItem extends StatelessWidget {
- final double price;
-  const ProductItem({super.key, required this.price});
+  final ProductModel product;
+  const ProductItem({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -17,19 +18,28 @@ class ProductItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(child: Image.asset('assets/images/fruit.png', height: 100)),
-          SizedBox(height: 12),
-          Text(
-            "Red Apple",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+          Center(
+            child: Image.asset(product.image, height: 100, fit: BoxFit.contain),
           ),
-          Text("1kg, Price", style: TextStyle(color: Color(0xff7C7C7C))),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
+          Text(
+            product.title,
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          Text(
+            product.description,
+            style: TextStyle(color: Color(0xff7C7C7C), fontSize: 13),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          Spacer(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "\$ $price",
+                "\$ ${product.price}",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
               Container(
