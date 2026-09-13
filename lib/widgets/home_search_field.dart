@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 
 class HomeSearchField extends StatelessWidget {
-  const HomeSearchField({super.key});
+  final ValueChanged<String>? onChanged;
+  const HomeSearchField({super.key, this.onChanged});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      cursorColor: Color(0xff53B175),
+      cursorColor: const Color(0xff53B175),
+      onChanged: onChanged,
       onTapOutside: (v) {
         FocusScope.of(context).unfocus();
       },
       decoration: InputDecoration(
-        fillColor: Color(0xffF2F3F2),
+        fillColor: const Color(0xffF2F3F2),
         filled: true,
         hintText: "search store",
-        prefixIcon: Padding(
-          padding: const EdgeInsets.only(left: 15),
+        prefixIcon: const Padding(
+          padding: EdgeInsets.only(left: 15),
           child: Icon(Icons.search),
         ),
-        prefixIconConstraints: BoxConstraints(maxWidth: 43, maxHeight: 40),
+        prefixIconConstraints: const BoxConstraints(maxWidth: 43, maxHeight: 40),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(15),
