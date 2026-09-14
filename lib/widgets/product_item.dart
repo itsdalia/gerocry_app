@@ -8,47 +8,49 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 173,
-      height: 260,
-      padding: EdgeInsets.only(top: 20, right: 15, left: 15, bottom: 15),
+      padding: const EdgeInsets.only(top: 16, right: 12, left: 12, bottom: 12),
       decoration: BoxDecoration(
-        border: Border.all(color: Color(0xffE2E2E2)),
-        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: const Color(0xffE2E2E2)),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Center(
-            child: Image.asset(product.image, height: 100, fit: BoxFit.contain),
+            child: Image.asset(product.image, height: 90, fit: BoxFit.contain),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 12),
           Text(
             product.title,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
+          const SizedBox(height: 2),
           Text(
             product.description,
-            style: TextStyle(color: Color(0xff7C7C7C), fontSize: 13),
+            style: const TextStyle(color: Color(0xff7C7C7C), fontSize: 13),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
-          Spacer(),
+          const Spacer(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 "\$ ${product.price}",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(9),
                 decoration: BoxDecoration(
-                  color: Color(0xff53B175),
-                  borderRadius: BorderRadius.circular(18),
+                  color: const Color(0xff53B175),
+                  borderRadius: BorderRadius.circular(16),
                 ),
-                child: Icon(Icons.add, color: Colors.white, size: 17),
+                child: const Icon(Icons.add, color: Colors.white, size: 17),
               ),
             ],
           ),
