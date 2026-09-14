@@ -64,37 +64,37 @@ class _ExplorScreenState extends State<ExplorScreen> {
 
 List<CategoryModel> categories = [
   CategoryModel(
-    image: "assets/images/fruit.png",
+    image: "assets/images/pangfuel2.png",
     title: "Fresh Fruits\n& Vegetable",
     color: const Color(0xff53B175),
     products: [],
   ),
   CategoryModel(
-    image: "assets/images/eddge.png",
+    image: "assets/images/pangfuel1.png",
     title: "Cooking Oil\n& Ghee",
     color: const Color(0xffF8A44C),
     products: [],
   ),
   CategoryModel(
-    image: "assets/images/product5.png",
+    image: "assets/images/pangfuel3.png",
     title: "Meat & Fish",
     color: const Color(0xffF7A593),
     products: [],
   ),
   CategoryModel(
-    image: "assets/images/product6.png",
+    image: "assets/images/pangfuel.png",
     title: "Bakery & Snacks",
     color: const Color(0xffFDE0E0),
     products: [],
   ),
   CategoryModel(
-    image: "assets/images/product2.png",
+    image: "assets/images/pangfuel5.png",
     title: "Dairy & Eggs",
     color: const Color(0xffFFDE59),
     products: [],
   ),
   CategoryModel(
-    image: "assets/images/beef1.png",
+    image: "assets/images/pangfuel6.png",
     title: "Beverages",
     color: const Color(0xffB7DFF5),
     products: [
