@@ -23,12 +23,19 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
   }
 
   void showFilterSheet() async {
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(
-        fullscreenDialog: true,
-        builder: (context) => FilterScreen(initialSort: selectedSort),
+    final result = await showModalBottomSheet<String>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
       ),
+      builder: (context) {
+        return FractionallySizedBox(
+          heightFactor: 0.95,
+          child: FilterScreen(initialSort: selectedSort),
+        );
+      },
     );
 
     if (result != null) {
