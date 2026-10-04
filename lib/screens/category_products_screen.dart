@@ -13,17 +13,26 @@ class CategoryProductsScreen extends StatefulWidget {
 }
 
 class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
-  late List<ProductModel> products;
-  String? selectedSort;
+  late List<ProductModel> allProducts;
+  late List<ProductModel> filteredProducts;
+  List<String> selectedCategories = [];
+  List<String> selectedBrands = [];
 
   @override
   void initState() {
     super.initState();
-    products = List.from(widget.category.products);
+    allProducts = widget.category.products;
+    filteredProducts = List.from(allProducts);
   }
 
   void showFilterSheet() async {
-    final result = await showModalBottomSheet<String>(
+    List<String> categories = allProducts
+        .map((p) => p.category)
+        .toSet()
+        .toList();
+    List<String> brands = allProducts.map((p) => p.brand).toSet().toList();
+
+    final result = await showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.white,
@@ -32,29 +41,30 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
       ),
       builder: (context) {
         return FractionallySizedBox(
-          heightFactor: 0.95,
-          child: FilterScreen(initialSort: selectedSort),
+          heightFactor: 0.88,
+          child: FilterScreen(
+            categories: categories,
+            brands: brands,
+            selectedCategories: selectedCategories,
+            selectedBrands: selectedBrands,
+          ),
         );
       },
     );
 
     if (result != null) {
       setState(() {
-        selectedSort = result;
-        switch (selectedSort) {
-          case 'price_low':
-            products.sort((a, b) => a.price.compareTo(b.price));
-            break;
-          case 'price_high':
-            products.sort((a, b) => b.price.compareTo(a.price));
-            break;
-          case 'name_az':
-            products.sort((a, b) => a.title.compareTo(b.title));
-            break;
-          case 'name_za':
-            products.sort((a, b) => b.title.compareTo(a.title));
-            break;
-        }
+        selectedCategories = result['categories'];
+        selectedBrands = result['brands'];
+
+        filteredProducts = allProducts.where((product) {
+          bool matchesCategory =
+              selectedCategories.isEmpty ||
+              selectedCategories.contains(product.category);
+          bool matchesBrand =
+              selectedBrands.isEmpty || selectedBrands.contains(product.brand);
+          return matchesCategory && matchesBrand;
+        }).toList();
       });
     }
   }
@@ -73,18 +83,20 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        child: GridView.builder(
-          itemCount: products.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 12,
-            mainAxisSpacing: 16,
-            childAspectRatio: 0.697,
-          ),
-          itemBuilder: (context, index) {
-            return ProductItem(product: products[index]);
-          },
-        ),
+        child: filteredProducts.isEmpty
+            ? const Center(child: Text("No products found"))
+            : GridView.builder(
+                itemCount: filteredProducts.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 16,
+                  childAspectRatio: 0.697,
+                ),
+                itemBuilder: (context, index) {
+                  return ProductItem(product: filteredProducts[index]);
+                },
+              ),
       ),
     );
   }

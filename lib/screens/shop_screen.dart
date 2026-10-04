@@ -20,7 +20,6 @@ class _ShopScreenState extends State<ShopScreen> {
         child: Column(
           children: [
             Center(child: Image.asset("assets/images/carrot.png", width: 30)),
-
             const SizedBox(height: 7.6),
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -109,36 +108,48 @@ List<ProductModel> products = [
     title: "Pulses",
     description: "1kg, Priceg",
     price: 4.99,
+    category: "Grains",
+    brand: "Individual Collection",
   ),
   ProductModel(
     image: "assets/images/product2.png",
     title: "Rice",
     description: "1kg, Priceg",
     price: 4.99,
+    category: "Grains",
+    brand: "Individual Collection",
   ),
   ProductModel(
     image: "assets/images/product3.png",
     title: "Bell Papper Red",
     description: "1kg, Priceg",
     price: 5.99,
+    category: "Vegetables",
+    brand: "Individual Collection",
   ),
   ProductModel(
     image: "assets/images/product4.png",
     title: "Broiler Checken",
     description: "1kg, Priceg",
     price: 7.99,
+    category: "Meat",
+    brand: "Kazi Farmas",
   ),
   ProductModel(
     image: "assets/images/product5.png",
     title: "Beef Bone",
     description: "1kg, Priceg",
     price: 8.99,
+    category: "Meat",
+    brand: "Kazi Farmas",
   ),
   ProductModel(
     image: "assets/images/product6.png",
     title: "Ginger",
     description: "1kg, Priceg",
     price: 3.99,
+    category: "Vegetables",
+    brand: "Individual Collection",
   ),
 ];
 
@@ -148,23 +159,31 @@ List<ProductModel> bestSellingProducts = [
     title: "Bell Papper Red",
     description: "1kg, Priceg",
     price: 5.99,
+    category: "Vegetables",
+    brand: "Individual Collection",
   ),
   ProductModel(
     image: "assets/images/product6.png",
     title: "Ginger",
     description: "1kg, Priceg",
     price: 3.99,
+    category: "Vegetables",
+    brand: "Individual Collection",
   ),
   ProductModel(
     image: "assets/images/product1.png",
     title: "Pulses",
     description: "1kg, Priceg",
     price: 4.99,
+    category: "Grains",
+    brand: "Individual Collection",
   ),
   ProductModel(
     image: "assets/images/product5.png",
     title: "Beef Bone",
     description: "1kg, Priceg",
     price: 8.99,
+    category: "Meat",
+    brand: "Kazi Farmas",
   ),
 ];

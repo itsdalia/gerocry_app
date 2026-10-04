@@ -1,33 +1,81 @@
 import 'package:flutter/material.dart';
 
 class FilterScreen extends StatefulWidget {
-  final String? initialSort;
-  const FilterScreen({super.key, this.initialSort});
+  final List<String> categories;
+  final List<String> brands;
+  final List<String> selectedCategories;
+  final List<String> selectedBrands;
+
+  const FilterScreen({
+    super.key,
+    required this.categories,
+    required this.brands,
+    required this.selectedCategories,
+    required this.selectedBrands,
+  });
 
   @override
   State<FilterScreen> createState() => _FilterScreenState();
 }
 
 class _FilterScreenState extends State<FilterScreen> {
-  String? selectedSort;
+  late List<String> selectedCategories;
+  late List<String> selectedBrands;
 
   @override
   void initState() {
     super.initState();
-    selectedSort = widget.initialSort;
+    selectedCategories = List.from(widget.selectedCategories);
+    selectedBrands = List.from(widget.selectedBrands);
   }
 
-  Widget filterOption(String label, String value) {
-    return CheckboxListTile(
-      value: selectedSort == value,
-      onChanged: (checked) {
-        setState(() {
-          selectedSort = checked == true ? value : null;
-        });
-      },
-      activeColor: const Color(0xff53B175),
-      controlAffinity: ListTileControlAffinity.leading,
-      title: Text(label),
+  Widget sectionTitle(String title) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 30, bottom: 12),
+      child: Text(
+        title,
+        style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+      ),
+    );
+  }
+
+  Widget checkOption(String label, bool isSelected, VoidCallback onTap) {
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: Row(
+          children: [
+            Container(
+              width: 24,
+              height: 24,
+              decoration: BoxDecoration(
+                color: isSelected ? const Color(0xff53B175) : Colors.white,
+                borderRadius: BorderRadius.circular(6),
+                border: Border.all(
+                  color: isSelected
+                      ? const Color(0xff53B175)
+                      : const Color(0xffB1B1B1),
+                  width: 1.5,
+                ),
+              ),
+              child: isSelected
+                  ? const Icon(Icons.check, color: Colors.white, size: 16)
+                  : null,
+            ),
+            const SizedBox(width: 14),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 16,
+                color: isSelected
+                    ? const Color(0xff53B175)
+                    : const Color(0xff181725),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -37,10 +85,11 @@ class _FilterScreenState extends State<FilterScreen> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -55,26 +104,55 @@ class _FilterScreenState extends State<FilterScreen> {
                   const SizedBox(width: 48),
                 ],
               ),
-              const SizedBox(height: 10),
-              const Text(
-                "Sort By Price",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      sectionTitle("Categories"),
+                      ...widget.categories.map(
+                        (cat) => checkOption(
+                          cat,
+                          selectedCategories.contains(cat),
+                          () {
+                            setState(() {
+                              if (selectedCategories.contains(cat)) {
+                                selectedCategories.remove(cat);
+                              } else {
+                                selectedCategories.add(cat);
+                              }
+                            });
+                          },
+                        ),
+                      ),
+                      sectionTitle("Brand"),
+                      ...widget.brands.map(
+                        (brand) => checkOption(
+                          brand,
+                          selectedBrands.contains(brand),
+                          () {
+                            setState(() {
+                              if (selectedBrands.contains(brand)) {
+                                selectedBrands.remove(brand);
+                              } else {
+                                selectedBrands.add(brand);
+                              }
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              filterOption("Price: Low to High", 'price_low'),
-              filterOption("Price: High to Low", 'price_high'),
-              const SizedBox(height: 10),
-              const Text(
-                "Sort By Name",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              filterOption("Name: A to Z", 'name_az'),
-              filterOption("Name: Z to A", 'name_za'),
-              const Spacer(),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pop(context, selectedSort);
+                    Navigator.pop(context, {
+                      'categories': selectedCategories,
+                      'brands': selectedBrands,
+                    });
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xff53B175),
